@@ -1,13 +1,161 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.big-container{
+  display: flex;
+  flex-direction: row;
+}
+.navbar{
+  background-color:#1b716f;
+  height: 100vh;
+  flex-grow:1.5;
+  width:160px
+}
+li{
+  color: white;
+  list-style-type: none;
+  padding-top: 50px;
+}
+a{
+  text-decoration: none;
+  color: white;
+  letter-spacing: 2px;
+  margin-left:30px;
+  width:min-content;
+}
+#Home a{
+  color: rgb(123, 8, 8);
+  border-bottom: 1px solid rgb(130, 4, 4)
+}
+.main-content{
+  flex-grow:8;
+}
+.add{
+color:rgb(31, 76, 225);
+background: none;
+font-size: 23px;
+cursor: pointer;
+border: none;
+margin-left: 25px;
+margin-top: 3px;
+}
+.check:checked + label {
+  color:rgba(128, 128, 128, 0.874);
+  text-decoration: line-through;
+}
+.remove{
+  border: none;
+  background: none;
+  color: white;
+  font-size:30px;
+  padding-top: 15px;
+  padding-left: 0px;
+}
+#header{
+  color: rgba(128, 128, 128, 0.226);
+  font-size: 50px;
+  font-weight: lighter;
+  letter-spacing: 25px;
+  padding-top: 140px;
+  padding-left: 325px;
+  width: auto;
+}
+.input-data{
+  width: 400px;
+  margin-left: 250px;
+  height: 30px;
+  margin-top: 40px;
+  border-radius:15px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: -4px 3px 12px 0px rgba(112,107,107,0.75);
+-webkit-box-shadow: -4px 3px 12px 0px rgba(112,107,107,0.75);
+-moz-box-shadow: -4px 3px 12px 0px rgba(112,107,107,0.75);
+}
+.input-data input{
+  outline: none;
+  color: rgb(33, 32, 32);
+  border: none;
+  background-color:transparent;
+  padding-left: 50px;
+  margin-left: 15px;
+  width: 250px;
+  margin-top: 2px;
+}
+.input-data input::placeholder{
+  color: rgba(128, 128, 128, 0.715);
+  letter-spacing: 2px;
+}
+/* css of the tasks */
+.container-task{
+  min-height: auto;
+  height: 300px;
+  overflow-y: scroll;
+  margin-left: 150px;
+  width: 700px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.data-task{
+  display: flex;
+  border: 2px dotted rgba(0, 0, 0, 0.514);
+  height: 20px;
+  padding-top: 4px;
+  width: 500px;
+  padding-bottom: 20px;
+  margin-left:85px ;
+  margin-top: 15px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+input[type=checkbox] {
+  margin-top: 2%;
+}
+.data-task label{
+  color: rgb(13, 11, 11);
+  flex-grow: 1;
+  padding-top: 6px;
+  font-size: 17px;
+  padding-left: 15px;
+}
+.data-task button{
+  color: red;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.292);
+  border-radius:17px;
+  padding-bottom: 30px;
+  padding-top: 5px;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 25px;
+}
+/* css of the scroll bar */
+/* width */
+::-webkit-scrollbar {
+  width: 13px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(65, 126, 156, 0.648);
+  border-radius: 10px;
+}
+/* css of the responsive */
+#responsive-logo{
+  display: hidden;
+  width: 48px;
+  height: 48px;
+  background-size: 37px;
+}
+@media all and (max-width:500px){
+ 
 }
