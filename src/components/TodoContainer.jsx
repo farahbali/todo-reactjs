@@ -8,39 +8,63 @@ export class TodoContainer extends Component {
   state={
     task:"",
     listTodo:[],
-    isClicked:false,
+    isClicked:[],
   }
   handelChange=(e)=>{
     e.preventDefault()
     const value = e.target.value
     this.setState({task: value })
-    console.log("im changing",value)
+  }
+  handelChangeEdit=(e,index)=>{
+    const value = e.target.value
+    this.setState((prevState) => {
+      const newListTodo = [...prevState.listTodo];
+      newListTodo[index] = value;
+      return { listTodo: newListTodo };
+  });
   }
   handelSubmit=(e)=>{
     e.preventDefault()
     this.setState((oldTask)=>{
       return{
         listTodo:[...oldTask.listTodo,oldTask.task],
-        task:""
+        task:"",
+        isClicked:[...oldTask.isClicked,false],
       }
     })
   }
-  handleRemoveItem=(e)=>{
-    let i=e.target.parentElement.parentElement.previousSibling.innerText
-    this.setState((oldTask) => {
+  handleRemoveItem=(e,i)=>{
+    e.preventDefault()
+    this.setState((oldTask) =>{
       return {
-        listTodo: oldTask.listTodo.filter((item) => item !== i)
+        isClicked: oldTask.isClicked.filter((item,index) => index !== i),
+        listTodo: oldTask.listTodo.filter((item,index) => index !== i),
       };
     });
   };
-  handelEdit=(e)=>{
-  this.setState({isClicked:true})
-  console.log("handel edit this is the target",e.target,this.state.isClicked)
-  }
-  handelBlur=(e)=>{
+  handelEdit=(e,i)=>{
     e.preventDefault()
-    this.setState({isClicked:false})
-    console.log("this is blur event",e.target,this.state.isClicked)
+    this.setState(prevState => {
+      const newIsClicked = prevState.isClicked.map((item, index) => {
+        if (index ===i) {
+          return true;
+        }
+        return item;
+      });
+      return { isClicked: newIsClicked };
+    });
+  }
+  handelBlur=(e,i)=>{
+    e.preventDefault()
+    this.setState(prevState => {
+      const newIsClicked = prevState.isClicked.map((item, index) => {
+        if (index ===i) {
+          return false;
+        }
+        return item;
+      });
+      return { isClicked: newIsClicked };
+    });
    }
   render() {
     const links=["Home","About"]
@@ -53,7 +77,7 @@ export class TodoContainer extends Component {
       <div className="main-content">
       <Header label="ToDos"/>
       <InputTodo type="text" val={task} onchan={this.handelChange} onclik={this.handelSubmit} name="task"/>
-      <TodosList list={listTodo} onrem={this.handleRemoveItem} handelEdit={this.handelEdit} itemClicked={isClicked} onchan={this.handelChange} onblur={this.handelBlur} />
+      <TodosList list={listTodo} onrem={this.handleRemoveItem} handelEdit={this.handelEdit} itemClicked={isClicked} onchan={this.handelChangeEdit} onblur={this.handelBlur} />
       </div>
     </div>
   )

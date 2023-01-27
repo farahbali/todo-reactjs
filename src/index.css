@@ -62,6 +62,11 @@ margin-top: 3px;
   padding-left: 325px;
   width: auto;
 }
+#edit{
+  color: green;
+  margin-left: 10px;
+  margin-right: 5px;
+}
 .input-data{
   width: 400px;
   margin-left: 250px;
@@ -90,15 +95,23 @@ margin-top: 3px;
 }
 /* css of the tasks */
 .container-task{
-  min-height: auto;
-  height: 300px;
+  height: 200px;
   overflow-y: scroll;
   margin-left: 150px;
   width: 700px;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+.change-input{
+  width: 280px;
+  height: 30px;
+  padding-left: 10px;
+  margin-left: 15px;
+  outline: none;
+  font-size: 17px;
+  border: none;
+border-bottom: 1px solid  rgb(3, 84, 128);
 }
 .data-task{
   display: flex;
